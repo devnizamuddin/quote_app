@@ -34,8 +34,8 @@ class QuoteCard extends StatelessWidget {
               children: [
                 FlatButton.icon(
                   onPressed: delete,
-                  label: Text("Delete"),
-                  icon: Icon(Icons.delete),
+                  label: Text("Delete",style: TextStyle(color: Colors.red),),
+                  icon: Icon(Icons.delete,color: Colors.red,),
                 ),
               ],
             )

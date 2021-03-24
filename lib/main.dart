@@ -5,7 +5,7 @@ import 'package:quote_app/quote_card.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: QuoteList(),
+    home: QuoteList(), //run a stateful widget
   ));
 }
 
@@ -15,6 +15,7 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
+  //list of quote of different person in the world
   List<Quote> quotes = [
     Quote(
         text:
@@ -37,15 +38,22 @@ class _QuoteListState extends State<QuoteList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
+        brightness: Brightness.dark,
+        //app bar shadow
+        elevation: 0,
         title: Text("Beautiful Quote"),
         centerTitle: true,
       ),
       body: Column(
-          children: quotes.map((quote) => QuoteCard(quote, () {
-            setState(() {
-              quotes.remove(quote);
-            });
-          })).toList()),
+        //map quotes and get single quote and app in quoteCard
+          children: quotes
+              .map((quote) => QuoteCard(quote, () {
+                    //passing function
+                    setState(() {
+                      quotes.remove(quote);
+                    });
+                  }))
+              .toList()),
     );
   }
 }
